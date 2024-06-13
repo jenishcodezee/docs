@@ -1,0 +1,110 @@
+---
+title: "Update"
+openapi: "PUT /api/organization/company/{id}"
+---
+
+The company update API endpoint handles requests for updating an existing company.
+
+## Endpoint
+
+`PUT {{BASE_URL}}/api/organization/company/{id}`
+
+### Request
+
+The request should include the following JSON body:
+
+```json
+{
+  "company_name": "Code dot infotech",
+  "email": "code.dot@infotech.com",
+  "mobile_number": "8596000257",
+  "director_name": "Code Dot",
+  "pan_no": "EFGHE1234I",
+  "address": "123 Innovation Street",
+  "pin_code": "805500",
+  "city": "0f4ce030-f672-49bd-a8b6-ee52d2303a31",
+  "state": "9f89210f-14bf-4451-93e8-d41a0963df8e",
+  "country": "cb6c8d39-ab05-4220-90d6-8eda6b3b9ce5"
+}
+```
+
+### Success Response
+
+The Response should include the following JSON body:
+
+```json
+{
+  "statusCode": 200,
+  "message": "Company updated successfully.",
+  "data": {
+    "id": "1ca0591f-9298-46d6-9a68-6000d0265098",
+    "company_name": "Code dot infotech",
+    "email": "code.dot@infotech.com",
+    "phone_number": "912345678",
+    "mobile_number": "8596000257",
+    "director_name": "Code Dot",
+    "industry": "d3e8b771-aef7-432c-b712-67924dcad444",
+    "company_start_date": "2020-12-31T18:30:00.000Z",
+    "company_logo": "https://example.com/logo.jpg",
+    "authorized_signature": "https://example.com/signature.jpg",
+    "about_company": "We deliver state-of-the-art technology solutions.",
+    "vision_mission": "To revolutionize the tech industry with innovative solutions.",
+    "address": "123 Innovation Street",
+    "city": "0f4ce030-f672-49bd-a8b6-ee52d2303a31",
+    "state": "9f89210f-14bf-4451-93e8-d41a0963df8e",
+    "country": "cb6c8d39-ab05-4220-90d6-8eda6b3b9ce5",
+    "pin_code": "805500",
+    "cin_no": "U54321CD6789XYZ12345",
+    "registered_date": "2020-12-31T18:30:00.000Z",
+    "pan_no": "EFGHE1234I",
+    "tan_no": "EFGH12345I",
+    "pf_no": "B1234567C",
+    "esi_no": "5678YYYYYY1234567",
+    "gst_no": "34BCDE1234GHIJ9",
+    "pt_no": "C1234567D",
+    "is_deleted": false,
+    "created_by": "128605d9-1ac6-4e96-9915-51f5bc3749a6",
+    "updated_by": "128605d9-1ac6-4e96-9915-51f5bc3749a6",
+    "deleted_by": null,
+    "created_at": "2024-06-13T12:15:57.308Z",
+    "updated_at": "2024-06-13T12:18:24.080Z",
+    "deleted_at": null
+  }
+}
+```
+
+### Not found Responses
+
+If the provided company is not found in the database, the response might look like this:
+
+```json
+{
+  "statusCode": 404,
+  "message": "Company not found.",
+  "data": {}
+}
+```
+
+### Validation Error
+
+If the request body does not contain a valid email, the response might include a validation error:
+
+```json
+{
+  "statusCode": 409,
+  "message": "Validation Error",
+  "data": "Please provide a company name."
+}
+```
+
+### Server Error
+
+If there's an internal server error, the response might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```

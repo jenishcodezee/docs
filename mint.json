@@ -45,6 +45,14 @@
         "api/auth/verify-otp",
         "api/auth/forget-password"
       ]
+    },
+    {
+      "group": "Company",
+      "pages": [
+        "api/organization/company/add",
+        "api/organization/company/update",
+        "api/organization/company/get"
+      ]
     }
   ],
   "footerSocials": {
