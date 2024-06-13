@@ -1,0 +1,20 @@
+---
+title: "Introduction"
+description: "Welcome to 65.IO API Documentation"
+---
+
+## Welcome
+
+Welcome to the 65.IO API documentation. This guide provides all the necessary information for developers to interact with the 65.IO API.
+
+## Authentication
+
+All API endpoints require authentication via Bearer tokens. The token must be included in the Authorization header of each request. The security schema is defined in our OpenAPI specification file as shown below:
+
+```json
+"security": [
+  {
+    "bearerAuth": []
+  }
+]
+```

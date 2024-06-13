@@ -1,0 +1,83 @@
+---
+title: "Login"
+openapi: "POST /auth/login"
+---
+
+The login API endpoint handles user auth requests.
+
+## Endpoint
+
+`POST http://localhost:3000/api/auth/login`
+
+### Request
+
+The request should include the following JSON body:
+
+```json
+{
+  "email": "user.email@gmail.com",
+  "password": "UserPassword@123"
+}
+```
+
+### Success Response
+
+The Response should include the following JSON body:
+
+```json
+{
+  "statusCode": 200,
+  "message": "User login successfully",
+  "data": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI5YWJmNDk4OC02MDM1LTQxOGMtOTZlMC04OTlmYjlhYzU4NzYiLCJlbWFpbCI6ImJoYXZpa0BnbWFpbC5jb20iLCJpYXQiOjE3MTgxOTMzMzMsImV4cCI6MTcxODI3OTczM30.FfTRns5h6qHX1Iw2micMh166iK_xu8WGpD1uF6UBZD4",
+    "employee": {
+      "id": "9abf4988-6035-418c-96e0-899fb9ac5876",
+      "employee_name": "User",
+      "gender": "Male",
+      "email": "user@gmail.com",
+      "nick_name": "User",
+      "is_active": true,
+      "rejoined": false,
+      "is_deleted": false,
+      "created_at": "2024-05-23T01:01:01.650Z",
+      "updated_at": "2024-05-23T01:01:01.650Z"
+    }
+  }
+}
+```
+
+### Error Responses
+
+If the provided email or password is not found in the database, the response might look like this:
+
+```json
+{
+  "statusCode": 400,
+  "message": "Incorrect credentials.",
+  "data": {}
+}
+```
+
+### Validation Error
+
+If the request body does not contain a valid email, the response might include a validation error:
+
+```json
+{
+  "statusCode": 409,
+  "message": "Email must be a valid email address."
+  "data": {}
+}
+```
+
+### Server Error
+
+If there's an internal server error, the response might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```
