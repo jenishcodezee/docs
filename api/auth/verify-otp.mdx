@@ -1,0 +1,69 @@
+---
+title: "Verify OTP"
+openapi: "POST /auth/verify-otp"
+---
+
+The verify OTP API endpoint handles user auth requests.
+
+## Endpoint
+
+`POST http://localhost:3000/api/auth/verify-otp`
+
+### Request
+
+The request should include the following JSON body:
+
+```json
+{
+  "email": "user.email@gmail.com",
+  "code": 7845
+}
+```
+
+### Success Response
+
+The Response should include the following JSON body:
+
+```json
+{
+  "statusCode": 200,
+  "message": "OTP verify successfully",
+  "data": {}
+}
+```
+
+### Error Responses
+
+If the provided email or password is not found in the database, the response might look like this:
+
+```json
+{
+  "statusCode": 400,
+  "message": "Incorrect code entered. Please enter again.",
+  "data": {}
+}
+```
+
+### Validation Error
+
+If the request body does not contain a valid email, the response might include a validation error:
+
+```json
+{
+  "statusCode": 409,
+  "message": "Email must be a valid email address."
+  "data": {}
+}
+```
+
+### Server Error
+
+If there's an internal server error, the response might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```
