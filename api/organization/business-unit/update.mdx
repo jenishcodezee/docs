@@ -1,0 +1,120 @@
+---
+title: "Update"
+openapi: "PUT /api/organization/business-unit/{businessUnitId}"
+---
+
+The Business Unit Update API is designed to handle requests for updating the details of an existing business unit in the system. This API is part of the organization management module and is responsible for modifying business unit details in the database.
+
+## Endpoint
+
+`PUT {{BASE_URL}}/api/organization/business-unit/{businessUnitId}`
+
+### Request
+
+The request should include the following JSON body:
+
+```json
+{
+  "company_id": "816a2506-91c6-4b23-841d-cd174e42a074",
+  "business_unit_name": "Global Enterprises 123",
+  "email": "",
+  "phone_number": "",
+  "mobile_number": "",
+  "address": "",
+  "city": null,
+  "state": null,
+  "country": null,
+  "pincode": ""
+}
+```
+
+### Success Response
+
+The Response should include the following JSON body:
+
+```json
+{
+  "statusCode": 200,
+  "message": "Business unit updated successfully.",
+  "data": {
+    "id": "25b5d8d0-eea7-44e8-a744-55f124bf0d3e",
+    "company_id": "816a2506-91c6-4b23-841d-cd174e42a074",
+    "business_unit_name": "Global Enterprises 123",
+    "email": "",
+    "phone_number": "",
+    "mobile_number": "",
+    "address": "",
+    "city": null,
+    "state": null,
+    "country": null,
+    "pincode": "",
+    "is_deleted": false,
+    "created_by": "9abf4988-6035-418c-96e0-899fb9ac5876",
+    "updated_by": "9abf4988-6035-418c-96e0-899fb9ac5876",
+    "deleted_by": null,
+    "created_at": "2024-06-14T12:23:06.265Z",
+    "updated_at": "2024-06-14T12:23:12.137Z",
+    "deleted_at": null
+  }
+}
+```
+
+### Bad Request Responses
+
+Provided Request Server cannot or will not process the request due to something that is perceived to be a client error.
+
+```json
+{
+  "statusCode": 400,
+  "message": "Bad Request: Missing required fields",
+  "data": {}
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API responds might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Token required",
+  "data": {}
+}
+```
+
+### Data Not Found Responses
+
+If the provided email or password is not found in the database, the response might look like this:
+
+```json
+{
+  "statusCode": 404,
+  "message": "Business unit not found.",
+  "data": {}
+}
+```
+
+### Validation Error
+
+If the request body does not contain a valid email, the response might include a validation error:
+
+```json
+{
+  "statusCode": 409,
+  "message": "Validation Error",
+  "data": "Please provide a business unit name."
+}
+```
+
+### Server Error
+
+If there's an internal server error, the response might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```
