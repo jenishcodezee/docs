@@ -1,0 +1,144 @@
+---
+title: "List"
+openapi: "POST /api/organization/company/list"
+---
+
+This API endpoint fetches a list of all companies associated with a particular organization. It returns a structured list containing details about each company.
+
+## Endpoint
+
+`POST {{BASE_URL}}/api/organization/company/list`
+
+### Request
+
+To register a new company, the client must send a POST request to the specified endpoint with the following JSON payload:
+
+```json
+{
+  "page": 1,
+  "limit": 15,
+  "search": ""
+}
+```
+
+### Success Response
+
+The Response should include the following JSON body:
+
+```json
+{
+  "statusCode": 200,
+  "message": "Companies fetched successfully.",
+  "data": {
+    "totalPages": 1,
+    "currentPage": 1,
+    "totalCount": 3,
+    "companies": [
+      {
+        "id": "1ca0591f-9298-46d6-9a68-6000d0265098",
+        "company_name": "Code dot infotech",
+        "email": "code.dot@infotech.com",
+        "phone_number": "912345678",
+        "mobile_number": "8596000257",
+        "director_name": "Code Dot",
+        "industry": "d3e8b771-aef7-432c-b712-67924dcad444",
+        "industry_name": "Information Technology & Services",
+        "company_start_date": "2020-12-31T18:30:00.000Z",
+        "company_logo": "https://example.com/logo.jpg",
+        "authorized_signature": "https://example.com/signature.jpg",
+        "about_company": "We deliver state-of-the-art technology solutions.",
+        "vision_mission": "To revolutionize the tech industry with innovative solutions.",
+        "address": "123 Innovation Street",
+        "city": "0f4ce030-f672-49bd-a8b6-ee52d2303a31",
+        "city_name": "Surat",
+        "state": "9f89210f-14bf-4451-93e8-d41a0963df8e",
+        "state_name": "Gujarat",
+        "country": "cb6c8d39-ab05-4220-90d6-8eda6b3b9ce5",
+        "country_name": "India",
+        "pin_code": "805500",
+        "cin_no": "U54321CD6789XYZ12345",
+        "registered_date": "2020-12-31T18:30:00.000Z",
+        "pan_no": "EFGHE1234I",
+        "tan_no": "EFGH12345I",
+        "pf_no": "B1234567C",
+        "esi_no": "5678YYYYYY1234567",
+        "gst_no": "34BCDE1234GHIJ9",
+        "pt_no": "C1234567D",
+        "action_by": "Bhavik",
+        "action_at": "2024-06-14T09:15:43.385Z",
+        "full_count": "3"
+      },
+      {
+        "id": "2ce7aac1-1bf4-4518-a3b7-53308afa1521",
+        "company_name": "Tech Innovations Inc.1",
+        "email": "contact@191234192213techinnovations.com",
+        "phone_number": "1234567890",
+        "mobile_number": "0987654321",
+        "director_name": "John Doe",
+        "industry": "d3e8b771-aef7-432c-b712-67924dcad444",
+        "industry_name": "Information Technology & Services",
+        "company_start_date": "2021-12-31T18:30:00.000Z",
+        "company_logo": "https://sixtify.s3.ap-south-1.amazonaws.com/depositphotos_675471232-stock-illustration-lion-king-wild-roars-majestic_1715750732604_1716961939319_1716979824010.jpg",
+        "authorized_signature": "https://sixtify.s3.ap-south-1.amazonaws.com/depositphotos_675471232-stock-illustration-lion-king-wild-roars-majestic_1715750732604_1716961939319_1716979824010.jpg",
+        "about_company": "We are a tech company focused on innovation.",
+        "vision_mission": "To innovate and inspire.",
+        "address": "123 Innovation Street",
+        "city": "0f4ce030-f672-49bd-a8b6-ee52d2303a31",
+        "city_name": "Surat",
+        "state": "9f89210f-14bf-4451-93e8-d41a0963df8e",
+        "state_name": "Gujarat",
+        "country": "cb6c8d39-ab05-4220-90d6-8eda6b3b9ce5",
+        "country_name": "India",
+        "pin_code": "123456",
+        "cin_no": "L12345AB1234CDE567890",
+        "registered_date": "2021-12-31T18:30:00.000Z",
+        "pan_no": "ABCDE1234F",
+        "tan_no": "ABCD12345E",
+        "pf_no": "A1234567B",
+        "esi_no": "12345678901234567",
+        "gst_no": "12ABCDE1234F1Z9",
+        "pt_no": "A1234567B",
+        "action_by": "Kenil Borad",
+        "action_at": "2024-06-06T08:53:18.266Z",
+        "full_count": "3"
+      }
+    ]
+  }
+}
+```
+
+### Unauthenticated User Responses
+
+If the provided company is not found in the database, the response might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Token required",
+  "data": {}
+}
+```
+
+### Validation Error
+
+If the request body does not contain a valid email, the response might include a validation error:
+
+```json
+{
+  "statusCode": 409,
+  "message": "Validation Error",
+  "data": "Limit must be greater than or equal to 1"
+}
+```
+
+### Server Error
+
+If there's an internal server error, the response might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```

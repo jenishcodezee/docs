@@ -51,7 +51,9 @@
       "pages": [
         "api/organization/company/add",
         "api/organization/company/update",
-        "api/organization/company/get"
+        "api/organization/company/get",
+        "api/organization/company/list",
+        "api/organization/company/delete"
       ]
     }
   ],

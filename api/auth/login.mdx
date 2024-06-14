@@ -3,7 +3,7 @@ title: "Login"
 openapi: "POST /auth/login"
 ---
 
-The login API endpoint handles user auth requests.
+This API endpoint is used for user authentication. It verifies the provided email and password, and if the credentials are correct, it returns a token or session information to the client.
 
 ## Endpoint
 
@@ -46,14 +46,38 @@ The Response should include the following JSON body:
 }
 ```
 
-### Error Responses
+### Bad Request Responses
+
+Provided Request Server cannot or will not process the request due to something that is perceived to be a client error.
+
+```json
+{
+  "statusCode": 400,
+  "message": "Bad Request: Missing required fields",
+  "data": {}
+}
+```
+
+### Unauthorized Responses
 
 If the provided email or password is not found in the database, the response might look like this:
 
 ```json
 {
-  "statusCode": 400,
+  "statusCode": 401,
   "message": "Incorrect credentials.",
+  "data": {}
+}
+```
+
+### Data Not Found Responses
+
+If the provided email or password is not found in the database, the response might look like this:
+
+```json
+{
+  "statusCode": 404,
+  "message": "Not Found: User does not exist",
   "data": {}
 }
 ```

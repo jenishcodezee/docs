@@ -3,7 +3,7 @@ title: "Add"
 openapi: "POST /api/organization/company"
 ---
 
-The company creation API endpoint handles requests for registering a new company.
+Company Creation API is designed to handle requests for registering a new company in the system. This API is part of the organization management module and is responsible for adding company details to the database.
 
 ## Endpoint
 
@@ -11,7 +11,7 @@ The company creation API endpoint handles requests for registering a new company
 
 ### Request
 
-The request should include the following JSON body:
+To register a new company, the client must send a POST request to the specified endpoint with the following JSON payload:
 
 ```json
 {
@@ -44,7 +44,7 @@ The request should include the following JSON body:
 
 ### Success Response
 
-The Response should include the following JSON body:
+On successful creation of a company, the API responds with a status code of 201 and the following JSON body:
 
 ```json
 {
@@ -87,33 +87,57 @@ The Response should include the following JSON body:
 }
 ```
 
-### Error Responses
+### Bad Request Responses
+
+Provided Request Server cannot or will not process the request due to something that is perceived to be a client error.
+
+```json
+{
+  "statusCode": 400,
+  "message": "Bad Request: Missing required fields",
+  "data": {}
+}
+```
+
+### Unauthenticated User Responses
+
+If the provided company is not found in the database, the response might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Token required",
+  "data": {}
+}
+```
+
+### Data Not Found Responses
 
 If the provided email or password is not found in the database, the response might look like this:
 
 ```json
 {
-  "statusCode": 400,
-  "message": "Incorrect credentials.",
+  "statusCode": 404,
+  "message": "Industry not found.",
   "data": {}
 }
 ```
 
 ### Validation Error
 
-If the request body does not contain a valid email, the response might include a validation error:
+If the request body contains invalid data, such as missing a required field, the API responds with a status code of 409:
 
 ```json
 {
   "statusCode": 409,
-  "message": "Validation Error",
-  "data": "Please provide a company name."
+  "message": "Email already exists with the same email address.",
+  "data": "contact@techsolutions.com"
 }
 ```
 
 ### Server Error
 
-If there's an internal server error, the response might look like this:
+If there is an internal server error, the API responds with a status code of 500:
 
 ```json
 {

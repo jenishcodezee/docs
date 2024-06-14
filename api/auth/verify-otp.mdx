@@ -3,7 +3,7 @@ title: "Verify OTP"
 openapi: "POST /auth/verify-otp"
 ---
 
-The verify OTP API endpoint handles user auth requests.
+Verify OTP API confirms user identity by validating a one-time password (OTP) sent via user's registered email during authentication processes.
 
 ## Endpoint
 
@@ -32,13 +32,25 @@ The Response should include the following JSON body:
 }
 ```
 
-### Error Responses
+### Bad Request Responses
+
+Provided Request Server cannot or will not process the request due to something that is perceived to be a client error.
+
+```json
+{
+  "statusCode": 400,
+  "message": "Bad Request: Missing required fields",
+  "data": {}
+}
+```
+
+### Unauthorized Responses
 
 If the provided email or password is not found in the database, the response might look like this:
 
 ```json
 {
-  "statusCode": 400,
+  "statusCode": 401,
   "message": "Incorrect code entered. Please enter again.",
   "data": {}
 }

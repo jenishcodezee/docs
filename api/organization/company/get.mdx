@@ -3,23 +3,11 @@ title: "Get"
 openapi: "GET /api/organization/company/{id}"
 ---
 
-The company retrieval API endpoint handles requests for fetching details of an existing company by its ID.
+Get Single Company by ID API is designed to handle requests for retrieving details of an existing company based on its unique identifier. This API is part of the organization management module and is responsible for fetching and returning the company information from the database.
 
 ## Endpoint
 
 `GET {{BASE_URL}}/api/organization/company/{id}`
-
-### Unauthenticated User Responses
-
-If the provided company is not found in the database, the response might look like this:
-
-```json
-{
-  "statusCode": 401,
-  "message": "Token required",
-  "data": {}
-}
-```
 
 ### Success Response
 
@@ -69,6 +57,30 @@ The Response should include the following JSON body:
     "action_by": "Jenish Chanchad",
     "action_at": "2024-06-13T12:18:24.080Z"
   }
+}
+```
+
+### Bad Request Responses
+
+Provided Request Server cannot or will not process the request due to something that is perceived to be a client error.
+
+```json
+{
+  "statusCode": 400,
+  "message": "Bad Request: Missing required fields",
+  "data": {}
+}
+```
+
+### Unauthenticated User Responses
+
+If the provided company is not found in the database, the response might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Token required",
+  "data": {}
 }
 ```
 
