@@ -93,6 +93,36 @@
         "api/organization/bank/list",
         "api/organization/bank/delete"
       ]
+    },
+    {
+      "group": "Settings / Miscellaneous Data / Department",
+      "pages": [
+        "api/settings/miscellaneous-data/department/add",
+        "api/settings/miscellaneous-data/department/update",
+        "api/settings/miscellaneous-data/department/get",
+        "api/settings/miscellaneous-data/department/list",
+        "api/settings/miscellaneous-data/department/delete"
+      ]
+    },
+    {
+      "group": "Settings / Miscellaneous Data / Sub-Department",
+      "pages": [
+        "api/settings/miscellaneous-data/sub-department/add",
+        "api/settings/miscellaneous-data/sub-department/update",
+        "api/settings/miscellaneous-data/sub-department/get",
+        "api/settings/miscellaneous-data/sub-department/list",
+        "api/settings/miscellaneous-data/sub-department/delete"
+      ]
+    },
+    {
+      "group": "Settings / Miscellaneous Data / Designation",
+      "pages": [
+        "api/settings/miscellaneous-data/designations/add",
+        "api/settings/miscellaneous-data/designations/update",
+        "api/settings/miscellaneous-data/designations/get",
+        "api/settings/miscellaneous-data/designations/list",
+        "api/settings/miscellaneous-data/designations/delete"
+      ]
     }
   ],
   "footerSocials": {

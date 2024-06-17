@@ -1,0 +1,106 @@
+---
+title: "List"
+openapi: "POST /api/settings/department/list"
+---
+
+The Department Listing API retrieves a paginated list of departments within the organization based on specified filters. It is used for managing organizational departments and fetching details from the database.
+
+## Endpoint
+
+`POST {{BASE_URL}}/api/settings/department/list`
+
+### Request
+
+To retrieve department information, send a POST request with the following JSON payload:
+
+```json
+{
+  "page": 1,
+  "limit": 15,
+  "is_active": true,
+  "search": "",
+  "filters": {
+    "department_name": "HR",
+    "company_name": "cMcReATiOn"
+  },
+  "responseFields": ["id", "department_name", "company_name"]
+}
+```
+
+### Success Response
+
+On successful retrieval of the list of departments, the API responds with a JSON body containing:
+
+```json
+{
+  "statusCode": 200,
+  "message": "Department listed successfully.",
+  "data": {
+    "totalPages": 2,
+    "currentPage": 1,
+    "totalCount": 24,
+    "departments": [
+      {
+        "id": "149ff3db-3d87-4756-950b-3c8621dbdd08",
+        "department_name": "HR35",
+        "company_name": "CMCREATION PVT LTD",
+        "full_count": "24"
+      },
+      {
+        "id": "ad6ba414-5d39-440a-bbab-36a5e2bf3da5",
+        "department_name": "HR34",
+        "company_name": "CMCREATION PVT LTD",
+        "full_count": "24"
+      },
+      {
+        "id": "cba14add-09e4-4ffc-8b65-1da60bfab19e",
+        "department_name": "HR33",
+        "company_name": "CMCREATION PVT LTD",
+        "full_count": "24"
+      },
+      {
+        "id": "f34b52e3-694f-425a-88ef-d6d1fc169725",
+        "department_name": "HR27",
+        "company_name": "CMCREATION PVT LTD",
+        "full_count": "24"
+      }
+    ]
+  }
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API response might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Token required",
+  "data": {}
+}
+```
+
+### Validation Error
+
+If the request body contains invalid data, the response might include a validation error:
+
+```json
+{
+  "statusCode": 409,
+  "message": "Validation Error",
+  "data": "Limit must be greater than or equal to 1"
+}
+```
+
+### Server Error
+
+If there is an internal server error, the API responds might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```

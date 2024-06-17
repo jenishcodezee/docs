@@ -1,0 +1,101 @@
+---
+title: "List"
+openapi: "POST /api/settings/designation/list"
+---
+
+The Designation Listing API allows clients to retrieve a list of designations based on specified criteria. This API is part of the settings management module and supports filtering and pagination for efficient data retrieval.
+
+## Endpoint
+
+`POST {{BASE_URL}}/api/settings/designation/list`
+
+### Request
+
+To retrieve a list of designations, send a POST request to the endpoint with optional query parameters:
+
+```json
+{
+  "page": 1,
+  "limit": 15,
+  // "is_active": true,
+  "search": "JECT"
+}
+```
+
+### Success Response
+
+On successful retrieval of designations, the API responds with the following JSON body:
+
+```json
+{
+  "statusCode": 200,
+  "message": "Designation listed successfully.",
+  "data": {
+    "totalPages": 1,
+    "currentPage": 1,
+    "totalCount": 2,
+    "designations": [
+      {
+        "id": "6bb486d5-7108-4c18-b715-5786cdec7aff",
+        "company_id": "816a2506-91c6-4b23-841d-cd174e42a074",
+        "company_name": "CMCREATION PVT LTD",
+        "designation_code": "PRM",
+        "designation_name": "Project Reposter",
+        "description": "This is example of Project Reposter.",
+        "is_active": true,
+        "action_by": "Jenish Chanchad",
+        "action_at": "2024-06-17T12:15:10.984Z",
+        "full_count": "2"
+      },
+      {
+        "id": "8e8f1576-aa4a-4e2e-bce8-1f75e77b5318",
+        "company_id": "816a2506-91c6-4b23-841d-cd174e42a074",
+        "company_name": "CMCREATION PVT LTD",
+        "designation_code": "ML",
+        "designation_name": "Meta project reporter",
+        "description": "This is example of Project Reposter. Meta project reporter Meta project reporter Meta project reporter",
+        "is_active": true,
+        "action_by": "Jenish Chanchad",
+        "action_at": "2024-05-28T06:47:27.224Z",
+        "full_count": "2"
+      }
+    ]
+  }
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API response might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Token required",
+  "data": {}
+}
+```
+
+### Validation Error
+
+If the request body contains invalid data, the response might include a validation error:
+
+```json
+{
+  "statusCode": 409,
+  "message": "Validation Error",
+  "data": "Limit number must be greater than or equal to 1"
+}
+```
+
+### Server Error
+
+If there is an internal server error, the API responds might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```

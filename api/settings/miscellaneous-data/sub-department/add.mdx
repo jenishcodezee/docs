@@ -1,0 +1,110 @@
+---
+title: "Add"
+openapi: "POST {{BASE_URL}}/api/settings/sub-department"
+---
+
+The Sub-department Creation API allows clients to register a new sub-department under an existing department within the company's organizational structure. This API is part of the settings management module and is responsible for storing sub-department details in the database.
+
+## Endpoint
+
+`POST {{BASE_URL}}/api/settings/sub-department`
+
+### Request
+
+To register a new sub-department, send a POST request to the endpoint with the following JSON payload:
+
+```json
+{
+  "department_id": "149ff3db-3d87-4756-950b-3c8621dbdd08",
+  "sub_department_code": "SM",
+  "sub_department_name": "Software Manager",
+  "description": "This is the Software Manager.",
+  "is_active": false
+}
+```
+
+### Success Response
+
+On successful creation of a sub-department, the API responds with a status code of 201 and the following JSON body:
+
+```json
+{
+  "statusCode": 201,
+  "message": "Sub-department added successfully.",
+  "data": {
+    "id": "5fa85f88-6cd3-4020-8d76-eaaa231d9b2d",
+    "department_id": "149ff3db-3d87-4756-950b-3c8621dbdd08",
+    "sub_department_code": "SM",
+    "sub_department_name": "Software Manager",
+    "description": "This is the Software Manager.",
+    "is_active": false,
+    "is_deleted": false,
+    "created_by": "128605d9-1ac6-4e96-9915-51f5bc3749a6",
+    "updated_by": "128605d9-1ac6-4e96-9915-51f5bc3749a6",
+    "created_at": "2024-06-17T11:12:49.389Z",
+    "updated_at": "2024-06-17T11:12:49.389Z",
+    "deleted_by": null,
+    "deleted_at": null
+  }
+}
+```
+
+### Bad Request Responses
+
+If the server cannot process the request due to a client error, the response might look like this:
+
+```json
+{
+  "statusCode": 400,
+  "message": "Bad Request: Missing required fields",
+  "data": {}
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API responds might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Token required",
+  "data": {}
+}
+```
+
+### Data Not Found Responses
+
+If the provided department is not found in the database, the response might look like this:
+
+```json
+{
+  "statusCode": 404,
+  "message": "Department not found.",
+  "data": {}
+}
+```
+
+### Validation Error
+
+If the request body does not contain valid data, the response might include a validation error:
+
+```json
+{
+  "statusCode": 409,
+  "message": "Validation Error",
+  "data": "Sub-department code must be a string."
+}
+```
+
+### Server Error
+
+If there is an internal server error, the API response might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```
