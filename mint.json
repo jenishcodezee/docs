@@ -75,6 +75,16 @@
         "api/organization/location/list",
         "api/organization/location/delete"
       ]
+    },
+    {
+      "group": "Company Bank",
+      "pages": [
+        "api/organization/bank/add",
+        "api/organization/bank/update",
+        "api/organization/bank/get",
+        "api/organization/bank/list",
+        "api/organization/bank/delete"
+      ]
     }
   ],
   "footerSocials": {
