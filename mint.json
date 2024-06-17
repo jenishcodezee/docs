@@ -47,6 +47,14 @@
       ]
     },
     {
+      "group": "Country-State-City",
+      "pages": [
+        "api/country-state-city/countries",
+        "api/country-state-city/state",
+        "api/country-state-city/city"
+      ]
+    },
+    {
       "group": "Company",
       "pages": [
         "api/organization/company/add",
