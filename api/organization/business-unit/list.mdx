@@ -1,17 +1,17 @@
 ---
 title: "List"
-openapi: "GET /api/organization/business-unit/list"
+openapi: "POST /api/organization/business-unit/list"
 ---
 
 The Business Unit Listing API is designed to handle requests for fetching a list of business units within the organization from the system. This API is part of the organization management module and is responsible for retrieving multiple business unit details from the database.
 
 ## Endpoint
 
-`GET {{BASE_URL}}/api/organization/business-unit/list`
+`POST {{BASE_URL}}/api/organization/business-unit/list`
 
 ### Request
 
-To fetch a list of business units, the client must send a GET request to the specified endpoint.
+To fetch a list of business units, the client must send a POST request to the specified endpoint.
 
 ```json
 {
@@ -93,7 +93,7 @@ If the request lacks proper authentication, the API responds might look like thi
 
 ### Validation Error
 
-If the request body does not contain a valid email, the response might include a validation error:
+If the request body does not contain valid data, the response might include a validation error:
 
 ```json
 {
@@ -105,7 +105,7 @@ If the request body does not contain a valid email, the response might include a
 
 ### Server Error
 
-If there's an internal server error, the response might look like this:
+If there is an internal server error, the API responds might look like this:
 
 ```json
 {

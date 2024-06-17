@@ -65,6 +65,16 @@
         "api/organization/business-unit/list",
         "api/organization/business-unit/delete"
       ]
+    },
+    {
+      "group": "Business Location",
+      "pages": [
+        "api/organization/location/add",
+        "api/organization/location/update",
+        "api/organization/location/get",
+        "api/organization/location/list",
+        "api/organization/location/delete"
+      ]
     }
   ],
   "footerSocials": {
