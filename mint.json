@@ -123,6 +123,16 @@
         "api/settings/miscellaneous-data/designations/list",
         "api/settings/miscellaneous-data/designations/delete"
       ]
+    },
+    {
+      "group": "Settings / Miscellaneous Data / Industry",
+      "pages": [
+        "api/settings/miscellaneous-data/industry/add",
+        "api/settings/miscellaneous-data/industry/update",
+        "api/settings/miscellaneous-data/industry/get",
+        "api/settings/miscellaneous-data/industry/list",
+        "api/settings/miscellaneous-data/industry/delete"
+      ]
     }
   ],
   "footerSocials": {
