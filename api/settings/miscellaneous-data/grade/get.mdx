@@ -1,0 +1,80 @@
+---
+title: "Get"
+openapi: "GET /api/settings/grade/{gradeId}"
+---
+
+The Grade Retrieval API is designed to handle requests for fetching the details of a specific grade from the system. This API is part of the settings management module and is responsible for retrieving grade details from the database.
+
+## Endpoint
+
+`GET {{BASE_URL}}/api/settings/grade/{gradeId}`
+
+### Success Response
+
+On successful retrieval of the grade, the API responds with the following JSON body:
+
+```json
+{
+  "statusCode": 200,
+  "message": "Grade retrieved successfully.",
+  "data": {
+    "id": "2d1f11b6-c9d9-4183-b765-ca8e3781cd83",
+    "company_id": "816a2506-91c6-4b23-841d-cd174e42a074",
+    "grade_code": "AD",
+    "grade_name": "Senior Manager Officer",
+    "description": "Senior Manager Officer",
+    "is_active": true,
+    "company_name": "CMCREATION PVT LTD",
+    "action_by": "Jenish Chanchad",
+    "action_at": "2024-06-18T07:24:21.908Z"
+  }
+}
+```
+
+### Bad Request Responses
+
+If the server cannot process the request due to a client error, the response might look like this:
+
+```json
+{
+  "statusCode": 400,
+  "message": "Bad Request: Missing required fields",
+  "data": {}
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API response might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Token required",
+  "data": {}
+}
+```
+
+### Not found Responses
+
+If the specified grade ID is not found in the database, the response might look like this:
+
+```json
+{
+  "statusCode": 404,
+  "message": "Grade not found.",
+  "data": {}
+}
+```
+
+### Server Error
+
+If there is an internal server error, the API response might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```

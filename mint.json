@@ -143,6 +143,16 @@
         "api/settings/miscellaneous-data/bank/list",
         "api/settings/miscellaneous-data/bank/delete"
       ]
+    },
+    {
+      "group": "Settings / Miscellaneous Data / Grade",
+      "pages": [
+        "api/settings/miscellaneous-data/grade/add",
+        "api/settings/miscellaneous-data/grade/update",
+        "api/settings/miscellaneous-data/grade/get",
+        "api/settings/miscellaneous-data/grade/list",
+        "api/settings/miscellaneous-data/grade/delete"
+      ]
     }
   ],
   "footerSocials": {

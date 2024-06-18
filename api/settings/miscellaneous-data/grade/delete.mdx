@@ -1,22 +1,22 @@
 ---
 title: "Delete"
-openapi: "DELETE /api/settings/industry/{industryId}"
+openapi: "DELETE /api/settings/grade/{gradeId}"
 ---
 
-The Industry Deletion API is designed to handle requests for deleting an existing industry from the system. This API is part of the settings management module and is responsible for removing industry details from the database.
+The Grade Deletion API is designed to handle requests for deleting an existing grade from the system. This API is part of the settings management module and is responsible for removing grade details from the database.
 
 ## Endpoint
 
-`DELETE {{BASE_URL}}/api/settings/industry/{industryId}`
+`DELETE {{BASE_URL}}/api/settings/grade/{gradeId}`
 
 ### Success Response
 
-On successful deletion of a industry, the API responds with the following JSON body:
+On successful deletion of a grade, the API responds with the following JSON body:
 
 ```json
 {
   "statusCode": 200,
-  "message": "Industry deleted successfully.",
+  "message": "Grade deleted successfully.",
   "data": {}
 }
 ```
@@ -47,12 +47,12 @@ If the request lacks proper authentication, the API responds with a status code 
 
 ### Data Not Found Responses
 
-If the specified industry ID is not found in the database, the response might look like this:
+If the specified grade ID is not found in the database, the response might look like this:
 
 ```json
 {
   "statusCode": 404,
-  "message": "Industry not found.",
+  "message": "Grade not found.",
   "data": {}
 }
 ```
