@@ -133,6 +133,16 @@
         "api/settings/miscellaneous-data/industry/list",
         "api/settings/miscellaneous-data/industry/delete"
       ]
+    },
+    {
+      "group": "Settings / Miscellaneous Data / Bank",
+      "pages": [
+        "api/settings/miscellaneous-data/bank/add",
+        "api/settings/miscellaneous-data/bank/update",
+        "api/settings/miscellaneous-data/bank/get",
+        "api/settings/miscellaneous-data/bank/list",
+        "api/settings/miscellaneous-data/bank/delete"
+      ]
     }
   ],
   "footerSocials": {
