@@ -163,6 +163,26 @@
         "api/settings/miscellaneous-data/work-type/list",
         "api/settings/miscellaneous-data/work-type/delete"
       ]
+    },
+    {
+      "group": "Settings / Miscellaneous Data / Skill-Type",
+      "pages": [
+        "api/settings/miscellaneous-data/skill-type/add",
+        "api/settings/miscellaneous-data/skill-type/update",
+        "api/settings/miscellaneous-data/skill-type/get",
+        "api/settings/miscellaneous-data/skill-type/list",
+        "api/settings/miscellaneous-data/skill-type/delete"
+      ]
+    },
+    {
+      "group": "Settings / Miscellaneous Data / Employee-Code",
+      "pages": [
+        "api/settings/miscellaneous-data/employee-code/add",
+        "api/settings/miscellaneous-data/employee-code/update",
+        "api/settings/miscellaneous-data/employee-code/get",
+        "api/settings/miscellaneous-data/employee-code/list",
+        "api/settings/miscellaneous-data/employee-code/delete"
+      ]
     }
   ],
   "footerSocials": {
