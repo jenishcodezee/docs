@@ -153,6 +153,16 @@
         "api/settings/miscellaneous-data/grade/list",
         "api/settings/miscellaneous-data/grade/delete"
       ]
+    },
+    {
+      "group": "Settings / Miscellaneous Data / Work-Type",
+      "pages": [
+        "api/settings/miscellaneous-data/work-type/add",
+        "api/settings/miscellaneous-data/work-type/update",
+        "api/settings/miscellaneous-data/work-type/get",
+        "api/settings/miscellaneous-data/work-type/list",
+        "api/settings/miscellaneous-data/work-type/delete"
+      ]
     }
   ],
   "footerSocials": {
