@@ -60,7 +60,7 @@ Provided Request Server cannot or will not process the request due to something 
 
 ### Unauthorized Responses
 
-If the provided email or password is not found in the database, the response might look like this:
+If the provided email or password is incorrect, the response might look like this:
 
 ```json
 {
@@ -72,7 +72,7 @@ If the provided email or password is not found in the database, the response mig
 
 ### Data Not Found Responses
 
-If the provided email or password is not found in the database, the response might look like this:
+If the provided email is not found in the database, the response might look like this:
 
 ```json
 {
@@ -96,7 +96,7 @@ If the request body does not contain a valid email, the response might include a
 
 ### Server Error
 
-If there is an internal server error, the API responds might look like this:
+If there is an internal server error, the API response might look like this:
 
 ```json
 {

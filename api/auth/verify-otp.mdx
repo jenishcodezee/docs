@@ -3,7 +3,7 @@ title: "Verify OTP"
 openapi: "POST /auth/verify-otp"
 ---
 
-Verify OTP API confirms user identity by validating a one-time password (OTP) sent via user's registered email during authentication processes.
+The Verify OTP API confirms user identity by validating a one-time password (OTP) sent via the user's registered email during authentication processes.
 
 ## Endpoint
 
@@ -22,19 +22,19 @@ The request should include the following JSON body:
 
 ### Success Response
 
-The Response should include the following JSON body:
+The response should include the following JSON body:
 
 ```json
 {
   "statusCode": 200,
-  "message": "OTP verify successfully",
+  "message": "OTP verified successfully",
   "data": {}
 }
 ```
 
 ### Bad Request Responses
 
-Provided Request Server cannot or will not process the request due to something that is perceived to be a client error.
+If the server cannot or will not process the request due to something perceived to be a client error, the response might look like this:
 
 ```json
 {
@@ -44,13 +44,13 @@ Provided Request Server cannot or will not process the request due to something 
 }
 ```
 
-### Unauthorized Responses
+### Data Not Found Responses
 
-If the provided email or password is not found in the database, the response might look like this:
+If the provided code is incorrect, the response might look like this:
 
 ```json
 {
-  "statusCode": 401,
+  "statusCode": 404,
   "message": "Incorrect code entered. Please enter again.",
   "data": {}
 }
@@ -63,14 +63,14 @@ If the request body does not contain a valid email, the response might include a
 ```json
 {
   "statusCode": 409,
-  "message": "Email must be a valid email address."
+  "message": "Email must be a valid email address.",
   "data": {}
 }
 ```
 
 ### Server Error
 
-If there is an internal server error, the API responds might look like this:
+If there is an internal server error, the API response might look like this:
 
 ```json
 {
