@@ -1,0 +1,101 @@
+---
+title: "List"
+openapi: "POST /api/settings/sub-department/list"
+---
+
+The Sub-department Listing API allows clients to retrieve a list of sub-departments based on specified criteria. This API is part of the settings management module and supports filtering and pagination for efficient data retrieval.
+
+## Endpoint
+
+`POST {{BASE_URL}}/api/settings/sub-department/list`
+
+### Request
+
+To retrieve a list of sub-departments, send a POST request to the endpoint with optional query parameters:
+
+```json
+{
+  "page": 1,
+  "limit": 15,
+  // "is_active": true,
+  "search": ""
+}
+```
+
+### Success Response
+
+On successful retrieval of sub-departments, the API responds with the following JSON body:
+
+```json
+{
+  "statusCode": 200,
+  "message": "Sub-department listed successfully.",
+  "data": {
+    "totalPages": 1,
+    "currentPage": 1,
+    "totalCount": 8,
+    "subDepartments": [
+      {
+        "id": "5fa85f88-6cd3-4020-8d76-eaaa231d9b2d",
+        "department_id": "149ff3db-3d87-4756-950b-3c8621dbdd08",
+        "department_name": "HR35",
+        "sub_department_code": "SM",
+        "sub_department_name": "Software Manager",
+        "description": "This is the Software Manager.",
+        "is_active": false,
+        "action_at": "2024-06-17T11:12:49.389Z",
+        "action_by": "Jenish Chanchad",
+        "full_count": "8"
+      },
+      {
+        "id": "d0c76ea3-e571-4064-940e-d105440114b0",
+        "department_id": "cda5b942-8c91-4a62-9f67-4721732eac9c",
+        "department_name": "Administration",
+        "sub_department_code": "DM",
+        "sub_department_name": "Digital Marketing",
+        "description": "This is the digital marketing.",
+        "is_active": false,
+        "action_at": "2024-05-27T04:30:05.917Z",
+        "action_by": "Jenish Chanchad",
+        "full_count": "8"
+      }
+    ]
+  }
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API response might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Token required",
+  "data": {}
+}
+```
+
+### Validation Error
+
+If the request body contains invalid data, the response might include a validation error:
+
+```json
+{
+  "statusCode": 409,
+  "message": "Validation Error",
+  "data": "Limit must be greater than or equal to 1"
+}
+```
+
+### Server Error
+
+If there is an internal server error, the API responds might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```

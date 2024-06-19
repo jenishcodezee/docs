@@ -1,0 +1,110 @@
+---
+title: "Update"
+openapi: "PUT /api/settings/department/{departmentId}"
+---
+
+The Department Update API allows updating details of a specific department in the system. This API is part of the settings module and is designed to modify department configuration.
+
+## Endpoint
+
+`PUT {{BASE_URL}}/api/settings/department/{departmentId}`
+
+### Request
+
+The request should include the following JSON body:
+
+```json
+{
+  "company_id": "f8218519-7fce-44bf-aa9b-ed7479bb0b72",
+  "department_code": "AC",
+  "department_name": "Accounting",
+  "description": "This is Accounting departments.",
+  "is_active": false
+}
+```
+
+### Success Response
+
+If the update is successful, the API responds with updated department details:
+
+```json
+{
+  "statusCode": 200,
+  "message": "Department updated successfully.",
+  "data": {
+    "id": "fd2f40f8-dd1f-4fbe-8c56-4d2894582b6f",
+    "company_id": "816a2506-91c6-4b23-841d-cd174e42a074",
+    "department_code": "SM",
+    "department_name": "Sales and Marketing",
+    "description": "This is Accounting department.",
+    "is_active": false,
+    "is_deleted": false,
+    "created_by": "128605d9-1ac6-4e96-9915-51f5bc3749a6",
+    "updated_by": "128605d9-1ac6-4e96-9915-51f5bc3749a6",
+    "deleted_by": null,
+    "created_at": "2024-06-17T09:23:57.462Z",
+    "updated_at": "2024-06-17T09:23:57.462Z",
+    "deleted_at": null
+  }
+}
+```
+
+### Bad Request Responses
+
+Provided Request Server cannot or will not process the request due to something that is perceived to be a client error.
+
+```json
+{
+  "statusCode": 400,
+  "message": "Bad Request: Missing required fields",
+  "data": {}
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API responds might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Token required",
+  "data": {}
+}
+```
+
+### Data Not Found Responses
+
+If the provided department is not found in the database, the response might look like this:
+
+```json
+{
+  "statusCode": 404,
+  "message": "Department not found.",
+  "data": {}
+}
+```
+
+### Validation Error
+
+If the request body does not contain valid data or required fields are missing, the response might include a validation error:
+
+```json
+{
+  "statusCode": 409,
+  "message": "Validation Error",
+  "data": "Please provide a department code."
+}
+```
+
+### Server Error
+
+If there is an internal server error, the API responds might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```

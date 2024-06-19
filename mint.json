@@ -45,6 +45,144 @@
         "api/auth/verify-otp",
         "api/auth/forget-password"
       ]
+    },
+    {
+      "group": "Country-State-City",
+      "pages": [
+        "api/country-state-city/countries",
+        "api/country-state-city/state",
+        "api/country-state-city/city"
+      ]
+    },
+    {
+      "group": "Company",
+      "pages": [
+        "api/organization/company/add",
+        "api/organization/company/update",
+        "api/organization/company/get",
+        "api/organization/company/list",
+        "api/organization/company/delete"
+      ]
+    },
+    {
+      "group": "Business Unit",
+      "pages": [
+        "api/organization/business-unit/add",
+        "api/organization/business-unit/update",
+        "api/organization/business-unit/get",
+        "api/organization/business-unit/list",
+        "api/organization/business-unit/delete"
+      ]
+    },
+    {
+      "group": "Business Location",
+      "pages": [
+        "api/organization/location/add",
+        "api/organization/location/update",
+        "api/organization/location/get",
+        "api/organization/location/list",
+        "api/organization/location/delete"
+      ]
+    },
+    {
+      "group": "Company Bank",
+      "pages": [
+        "api/organization/bank/add",
+        "api/organization/bank/update",
+        "api/organization/bank/get",
+        "api/organization/bank/list",
+        "api/organization/bank/delete"
+      ]
+    },
+    {
+      "group": "Settings / Miscellaneous Data / Department",
+      "pages": [
+        "api/settings/miscellaneous-data/department/add",
+        "api/settings/miscellaneous-data/department/update",
+        "api/settings/miscellaneous-data/department/get",
+        "api/settings/miscellaneous-data/department/list",
+        "api/settings/miscellaneous-data/department/delete"
+      ]
+    },
+    {
+      "group": "Settings / Miscellaneous Data / Sub-Department",
+      "pages": [
+        "api/settings/miscellaneous-data/sub-department/add",
+        "api/settings/miscellaneous-data/sub-department/update",
+        "api/settings/miscellaneous-data/sub-department/get",
+        "api/settings/miscellaneous-data/sub-department/list",
+        "api/settings/miscellaneous-data/sub-department/delete"
+      ]
+    },
+    {
+      "group": "Settings / Miscellaneous Data / Designation",
+      "pages": [
+        "api/settings/miscellaneous-data/designations/add",
+        "api/settings/miscellaneous-data/designations/update",
+        "api/settings/miscellaneous-data/designations/get",
+        "api/settings/miscellaneous-data/designations/list",
+        "api/settings/miscellaneous-data/designations/delete"
+      ]
+    },
+    {
+      "group": "Settings / Miscellaneous Data / Industry",
+      "pages": [
+        "api/settings/miscellaneous-data/industry/add",
+        "api/settings/miscellaneous-data/industry/update",
+        "api/settings/miscellaneous-data/industry/get",
+        "api/settings/miscellaneous-data/industry/list",
+        "api/settings/miscellaneous-data/industry/delete"
+      ]
+    },
+    {
+      "group": "Settings / Miscellaneous Data / Bank",
+      "pages": [
+        "api/settings/miscellaneous-data/bank/add",
+        "api/settings/miscellaneous-data/bank/update",
+        "api/settings/miscellaneous-data/bank/get",
+        "api/settings/miscellaneous-data/bank/list",
+        "api/settings/miscellaneous-data/bank/delete"
+      ]
+    },
+    {
+      "group": "Settings / Miscellaneous Data / Grade",
+      "pages": [
+        "api/settings/miscellaneous-data/grade/add",
+        "api/settings/miscellaneous-data/grade/update",
+        "api/settings/miscellaneous-data/grade/get",
+        "api/settings/miscellaneous-data/grade/list",
+        "api/settings/miscellaneous-data/grade/delete"
+      ]
+    },
+    {
+      "group": "Settings / Miscellaneous Data / Work-Type",
+      "pages": [
+        "api/settings/miscellaneous-data/work-type/add",
+        "api/settings/miscellaneous-data/work-type/update",
+        "api/settings/miscellaneous-data/work-type/get",
+        "api/settings/miscellaneous-data/work-type/list",
+        "api/settings/miscellaneous-data/work-type/delete"
+      ]
+    },
+    {
+      "group": "Settings / Miscellaneous Data / Skill-Type",
+      "pages": [
+        "api/settings/miscellaneous-data/skill-type/add",
+        "api/settings/miscellaneous-data/skill-type/update",
+        "api/settings/miscellaneous-data/skill-type/get",
+        "api/settings/miscellaneous-data/skill-type/list",
+        "api/settings/miscellaneous-data/skill-type/delete"
+      ]
+    },
+    {
+      "group": "Settings / Miscellaneous Data / Employee-Code",
+      "pages": [
+        "api/settings/miscellaneous-data/employee-code/add",
+        "api/settings/miscellaneous-data/employee-code/update",
+        "api/settings/miscellaneous-data/employee-code/get",
+        "api/settings/miscellaneous-data/employee-code/list",
+        "api/settings/miscellaneous-data/employee-code/delete"
+      ]
     }
   ],
   "footerSocials": {

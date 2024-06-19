@@ -1,0 +1,117 @@
+---
+title: "List"
+openapi: "POST /api/settings/employee-code/list"
+---
+
+The List Employee Codes API allows clients to retrieve a list of employee codes based on specified criteria. This API is part of the settings management module and provides access to employee code information stored in the database.
+
+## Endpoint
+
+`POST {{BASE_URL}}/api/settings/employee-code/list`
+
+### Request
+
+To retrieve a list of employee codes, send a POST request to the endpoint with the following JSON payload:
+
+```json
+{
+  "page": 1,
+  "limit": 15,
+  // "is_active": true,
+  "search": ""
+}
+```
+
+### Success Response
+
+On successful retrieval of employee codes, the API responds with the following JSON body:
+
+```json
+{
+  "statusCode": 200,
+  "message": "Employee code listed successfully.",
+  "data": {
+    "totalPages": 2,
+    "currentPage": 1,
+    "totalCount": 22,
+    "employeeCodes": [
+      {
+        "id": "01ef8c49-1597-420c-bbc7-3d6c1e234ae9",
+        "name": "Updated Logic Build PVT LTD",
+        "series_start": 0,
+        "prefix": "ULB",
+        "suffix": "C",
+        "numeric_series": 1,
+        "is_active": true,
+        "is_modify": true,
+        "last_created_number": 1,
+        "action_at": "2024-06-18T12:06:29.343Z",
+        "action_by": "Jenish Chanchad",
+        "full_count": "22"
+      },
+      {
+        "id": "7fb25826-4603-44f7-8634-781c293d67d3",
+        "name": "dcxs",
+        "series_start": 43,
+        "prefix": null,
+        "suffix": null,
+        "numeric_series": 34,
+        "is_active": true,
+        "is_modify": true,
+        "last_created_number": 43,
+        "action_at": "2024-06-12T04:31:57.119Z",
+        "action_by": "Bhavik",
+        "full_count": "22"
+      }
+    ]
+  }
+}
+```
+
+### Bad Request Responses
+
+If the server cannot process the request due to a client error, the response might look like this:
+
+```json
+{
+  "statusCode": 400,
+  "message": "Bad Request: Invalid required fields",
+  "data": {}
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API responds with the following JSON body:
+
+```json
+{
+  "statusCode": 401,
+  "message": "You are an unauthorized user",
+  "data": {}
+}
+```
+
+### Validation Error
+
+If the request body contains invalid data, the response might include a validation error:
+
+```json
+{
+  "statusCode": 409,
+  "message": "Validation Error",
+  "data": "Limit must be greater than or equal to 1"
+}
+```
+
+### Server Error
+
+If there is an internal server error, the API responds might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```

@@ -1,0 +1,102 @@
+---
+title: "City"
+openapi: "POST /api/city/{stateId}"
+---
+
+This API endpoint fetches a list of city details.
+
+## Endpoint
+
+`POST {{BASE_URL}}/api/city/{stateId}`
+
+### Success Response
+
+The Response should include the following JSON body:
+
+```json
+{
+  "statusCode": 200,
+  "message": "Cities fetched successfully.",
+  "data": [
+    {
+      "id": "0cc7bfbd-413f-4cfa-a293-8dc90c9ee9f3",
+      "city_name": "Amreli",
+      "state_id": "9f89210f-14bf-4451-93e8-d41a0963df8e"
+    },
+    {
+      "id": "0f6213f5-7f85-49ba-99a7-e4fcd105d093",
+      "city_name": "Anand",
+      "state_id": "9f89210f-14bf-4451-93e8-d41a0963df8e"
+    },
+    {
+      "id": "efcd5da7-a893-45d8-a414-c88b2dedc790",
+      "city_name": "Anjar",
+      "state_id": "9f89210f-14bf-4451-93e8-d41a0963df8e"
+    },
+    {
+      "id": "d15bc76f-d149-4f5b-8157-b1bf0ec98925",
+      "city_name": "Ankleshwar",
+      "state_id": "9f89210f-14bf-4451-93e8-d41a0963df8e"
+    },
+    {
+      "id": "3d5eec89-078e-43d6-b197-75972b6b5f28",
+      "city_name": "Bharuch",
+      "state_id": "9f89210f-14bf-4451-93e8-d41a0963df8e"
+    },
+    {
+      "id": "16a90621-c870-43bd-9622-d8aedea807e0",
+      "city_name": "Bhavnagar",
+      "state_id": "9f89210f-14bf-4451-93e8-d41a0963df8e"
+    },
+    {
+      "id": "5d01550d-0f0f-4b11-a911-e3a4e1aeabb9",
+      "city_name": "Bhuj",
+      "state_id": "9f89210f-14bf-4451-93e8-d41a0963df8e"
+    },
+    {
+      "id": "9d0fc1b7-bfce-4f1b-a498-0147dc32c039",
+      "city_name": "Chhapra",
+      "state_id": "9f89210f-14bf-4451-93e8-d41a0963df8e"
+    },
+    {
+      "id": "6f72ef6d-7a0a-460d-b381-03163fb9e865",
+      "city_name": "Deesa",
+      "state_id": "9f89210f-14bf-4451-93e8-d41a0963df8e"
+    },
+    {
+      "id": "8ec3ad8e-0aab-43d1-8c6c-2d4ec5d36655",
+      "city_name": "Dhoraji",
+      "state_id": "9f89210f-14bf-4451-93e8-d41a0963df8e"
+    },
+    {
+      "id": "0f4ce030-f672-49bd-a8b6-ee52d2303a31",
+      "city_name": "Surat",
+      "state_id": "9f89210f-14bf-4451-93e8-d41a0963df8e"
+    }
+  ]
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API responds might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Token required",
+  "data": {}
+}
+```
+
+### Server Error
+
+If there is an internal server error, the API responds might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```

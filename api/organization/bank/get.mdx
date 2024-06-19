@@ -1,0 +1,88 @@
+---
+title: "Get"
+openapi: "GET /api/organization/bank/{bankId}"
+---
+
+The Company Bank Retrieval API is designed to handle requests for fetching the details of a specific company bank in the system. This API is part of the organization management module and is responsible for retrieving company bank details from the database.
+
+## Endpoint
+
+`GET {{BASE_URL}}/api/organization/bank/{bankId}`
+
+### Success Response
+
+On successful retrieval of the company bank, the API responds with the following JSON body:
+
+```json
+{
+  "statusCode": 200,
+  "message": "Company bank retrieved successfully.",
+  "data": {
+    "id": "30c76755-a22f-42bd-a266-882efb045d78",
+    "company_id": "816a2506-91c6-4b23-841d-cd174e42a074",
+    "bank_id": "af56f283-5e99-4a32-818e-97056f1f4f37",
+    "branch": "KORMANGALA",
+    "ifsc_code": "HDFC0001234",
+    "account_number": "6543210987654321",
+    "is_deleted": false,
+    "created_by": "128605d9-1ac6-4e96-9915-51f5bc3749a6",
+    "updated_by": "128605d9-1ac6-4e96-9915-51f5bc3749a6",
+    "deleted_by": null,
+    "created_at": "2024-06-17T06:40:48.011Z",
+    "updated_at": "2024-06-17T06:40:48.011Z",
+    "deleted_at": null,
+    "company_name": "CMCREATION PVT LTD",
+    "bank_name": "IDBI Bank",
+    "action_by": "Jenish Chanchad",
+    "action_at": "2024-06-17T06:40:48.011Z"
+  }
+}
+```
+
+### Bad Request Responses
+
+Provided Request Server cannot or will not process the request due to something that is perceived to be a client error.
+
+```json
+{
+  "statusCode": 400,
+  "message": "Bad Request: Missing required fields",
+  "data": {}
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API responds might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Token required",
+  "data": {}
+}
+```
+
+### Not found Responses
+
+If the specified company bank is not found in the database, the response might look like this:
+
+```json
+{
+  "statusCode": 404,
+  "message": "Company bank not found.",
+  "data": {}
+}
+```
+
+### Server Error
+
+If there is an internal server error, the response might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```

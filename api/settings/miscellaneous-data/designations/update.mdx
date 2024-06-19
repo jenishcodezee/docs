@@ -1,0 +1,110 @@
+---
+title: "Update"
+openapi: "PUT /api/settings/designation/{designationId}"
+---
+
+The Designation Update API allows clients to update details of an existing designation within a company. This API is part of the settings management module and is responsible for modifying designation information in the database.
+
+## Endpoint
+
+`PUT {{BASE_URL}}/api/settings/designation/{designationId}`
+
+### Request
+
+To update a designation, send a PUT request to the endpoint with the following JSON payload:
+
+```json
+{
+  "company_id": "816a2506-91c6-4b23-841d-cd174e42a074",
+  "designation_code": "PRM",
+  "designation_name": "Project Reposter",
+  "description": "This is example of Project Reposter.",
+  "is_active": true
+}
+```
+
+### Success Response
+
+On successful update of the designation, the API responds with the following JSON body:
+
+```json
+{
+  "statusCode": 200,
+  "message": "Designation updated successfully.",
+  "data": {
+    "id": "6bb486d5-7108-4c18-b715-5786cdec7aff",
+    "designation_code": "PRM",
+    "designation_name": "Project Reposter",
+    "description": "This is example of Project Reposter.",
+    "is_active": true,
+    "is_deleted": false,
+    "created_by": "128605d9-1ac6-4e96-9915-51f5bc3749a6",
+    "updated_by": "128605d9-1ac6-4e96-9915-51f5bc3749a6",
+    "created_at": "2024-06-17T12:15:10.984Z",
+    "updated_at": "2024-06-17T12:15:10.984Z",
+    "deleted_by": null,
+    "deleted_at": null,
+    "company_id": "816a2506-91c6-4b23-841d-cd174e42a074"
+  }
+}
+```
+
+### Bad Request Responses
+
+If the server cannot process the request due to a client error, the response might look like this:
+
+```json
+{
+  "statusCode": 400,
+  "message": "Bad Request: Missing required fields",
+  "data": {}
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API response might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Token required",
+  "data": {}
+}
+```
+
+### Data Not Found Responses
+
+If the specified designation ID is not found in the database, the response might look like this:
+
+```json
+{
+  "statusCode": 404,
+  "message": "Designation not found.",
+  "data": {}
+}
+```
+
+### Validation Error
+
+If the request body does not contain valid data or required fields are missing, the response might include a validation error:
+
+```json
+{
+  "statusCode": 409,
+  "message": "Validation Error",
+  "data": "Please provide a designation code."
+}
+```
+
+### Server Error
+
+If there is an internal server error, the API responds might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```

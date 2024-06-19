@@ -1,0 +1,100 @@
+---
+title: "List"
+openapi: "POST /api/settings/grade/list"
+---
+
+The Grade Listing API is designed to handle requests for fetching a list of grades from the system. This API is part of the settings management module and is responsible for retrieving multiple grade details from the database based on specified criteria.
+
+## Endpoint
+
+`POST {{BASE_URL}}/api/settings/grade/list`
+
+### Request
+
+To retrieve a list of grades, send a POST request to the endpoint with optional filters in the JSON payload:
+
+```json
+{
+  "page": 1,
+  "limit": 15,
+  "is_active": true,
+  "search": "",
+  "filters": {
+    "grade_name": "Assistant",
+    "company_name": "cmCReaTiON"
+  },
+  "responseFields": [
+    "id",
+    "grade_name",
+    // "grade_code",
+    // "is_active",
+    "company_name"
+  ]
+}
+```
+
+### Success Response
+
+On successful retrieval of the grades, the API responds with the following JSON body:
+
+```json
+{
+  "statusCode": 200,
+  "message": "Grades listed successfully.",
+  "data": {
+    "totalPages": 1,
+    "currentPage": 1,
+    "totalCount": 2,
+    "grades": [
+      {
+        "id": "b2ae5e3d-2004-4b57-9be8-ccee22f56308",
+        "grade_name": "Assistant Director",
+        "company_name": "CMCREATION PVT LTD",
+        "full_count": "2"
+      },
+      {
+        "id": "ea3a3e54-0767-49b7-b2bc-5464364d8115",
+        "grade_name": "Assistant Manager",
+        "company_name": "CMCREATION PVT LTD",
+        "full_count": "2"
+      }
+    ]
+  }
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API response might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Token required",
+  "data": {}
+}
+```
+
+### Validation Error
+
+If the request body contains invalid data, the response might include a validation error:
+
+```json
+{
+  "statusCode": 409,
+  "message": "Validation Error",
+  "data": "is_active must be true or false."
+}
+```
+
+### Server Error
+
+If there is an internal server error, the API responds might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```
