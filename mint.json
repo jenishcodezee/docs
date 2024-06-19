@@ -28,19 +28,19 @@
   "tabs": [
     {
       "name": "65.IO API",
-      "url": "api"
+      "url": "api-admin"
     }
   ],
   "anchors": [],
   "navigation": [
     {
       "group": "API Documentation",
-      "pages": ["api/introduction"]
+      "pages": ["api-admin/introduction"]
     },
     {
       "group": "Authentication",
       "pages": [
-        "api/auth/login",
+        "api-admin/auth/login",
         "api/auth/forget-pwd-request",
         "api/auth/verify-otp",
         "api/auth/forget-password"
