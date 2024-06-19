@@ -1,0 +1,58 @@
+---
+title: "Delete"
+openapi: "DELETE /api/organization/business-unit/{businessUnitId}"
+---
+
+The Business Unit Deletion API is designed to handle requests for deleting a specific business unit from the system. This API is part of the organization management module and is responsible for removing business unit details from the database.
+
+## Endpoint
+
+`DELETE {{BASE_URL}}/api/organization/business-unit/{businessUnitId}`
+
+### Success Response
+
+The Response should include the following JSON body:
+
+```json
+{
+  "statusCode": 200,
+  "message": "Business unit deleted successfully.",
+  "data": {}
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API responds might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Token required",
+  "data": {}
+}
+```
+
+### Data Not Found Responses
+
+If the provided email or password is not found in the database, the response might look like this:
+
+```json
+{
+  "statusCode": 404,
+  "message": "Business unit not found.",
+  "data": null
+}
+```
+
+### Server Error
+
+If there is an internal server error, the API responds might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```

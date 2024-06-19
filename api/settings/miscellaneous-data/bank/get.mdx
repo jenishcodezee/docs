@@ -1,0 +1,78 @@
+---
+title: "Get"
+openapi: "GET /api/settings/bank/{bankId}"
+---
+
+The Bank Retrieval API is designed to handle requests for fetching details of a specific bank in the system. This API is part of the settings management module and is responsible for retrieving bank details from the database.
+
+## Endpoint
+
+`GET {{BASE_URL}}/api/settings/bank/{bankId}`
+
+### Success Response
+
+On successful retrieval of the bank, the API responds with the following JSON body:
+
+```json
+{
+  "statusCode": 200,
+  "message": "Bank retrieved successfully.",
+  "data": {
+    "id": "93e7c207-8bc1-41f7-9a0f-0fe061a3671c",
+    "bank_code": "NEW1234567890",
+    "bank_name": "New Bank Name",
+    "description": "Secondary bank account",
+    "is_active": true,
+    "action_by": "Jenish Chanchad",
+    "action_at": "2024-06-18T06:25:08.936Z"
+  }
+}
+```
+
+### Bad Request Responses
+
+If the server cannot process the request due to a client error, the response might look like this:
+
+```json
+{
+  "statusCode": 400,
+  "message": "Bad Request: Missing required fields",
+  "data": {}
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API response might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Token required",
+  "data": {}
+}
+```
+
+### Not found Responses
+
+If the specified bank ID is not found in the database, the response might look like this:
+
+```json
+{
+  "statusCode": 404,
+  "message": "Bank not found.",
+  "data": {}
+}
+```
+
+### Server Error
+
+If there is an internal server error, the API response might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```

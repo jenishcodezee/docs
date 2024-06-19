@@ -3,7 +3,7 @@ title: "Forget Password Request"
 openapi: "POST /api/auth/forget-pwd-request"
 ---
 
-The forget password request API endpoint handles user requests to initiate the password reset process.
+The Forget Password Request API endpoint initiates the password recovery process by sending one-time password (OTP) to the user's registered email. It requires the user's email address and returns a success message if the one-time password (OTP) are sent successfully.
 
 ## Endpoint
 
@@ -31,6 +31,18 @@ The response should include the following JSON body for a successful request:
 }
 ```
 
+### Bad Request Responses
+
+Provided Request Server cannot or will not process the request due to something that is perceived to be a client error.
+
+```json
+{
+  "statusCode": 400,
+  "message": "Bad Request: Missing required fields",
+  "data": {}
+}
+```
+
 ### Error Responses
 
 If the provided email is not found in the database, the response might look like this:
@@ -50,14 +62,14 @@ If the request body does not contain a valid email, the response might include a
 ```json
 {
   "statusCode": 409,
-  "message": "Email must be a valid email address.",
-  "data": {}
+  "message": "Validation Error",
+  "data": "Email must be a valid email address."
 }
 ```
 
 ### Server Error
 
-If there's an internal server error, the response might look like this:
+If there is an internal server error, the API responds might look like this:
 
 ```json
 {

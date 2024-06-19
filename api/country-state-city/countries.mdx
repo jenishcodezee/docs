@@ -1,0 +1,67 @@
+---
+title: "Countries"
+openapi: "POST /api/countries"
+---
+
+This API endpoint fetches a list of countries details.
+
+## Endpoint
+
+`POST {{BASE_URL}}/api/countries`
+
+### Success Response
+
+The Response should include the following JSON body:
+
+```json
+{
+  "statusCode": 200,
+  "message": "Countries fetched successfully.",
+  "data": [
+    {
+      "id": "8313e8fd-6e2b-47b1-b950-211b1d7e042a",
+      "country_name": "Afghanistan"
+    },
+    {
+      "id": "77f78fac-1c3a-4a3c-a7c9-7d5a89bb9c88",
+      "country_name": "Åland Islands"
+    },
+    {
+      "id": "13302f50-5983-4027-a90e-376148e0c433",
+      "country_name": "Albania"
+    },
+    {
+      "id": "36538d38-2fae-4826-bfab-b5686c83eb28",
+      "country_name": "Algeria"
+    },
+    {
+      "id": "cb6c8d39-ab05-4220-90d6-8eda6b3b9ce5",
+      "country_name": "India"
+    }
+  ]
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API responds might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Token required",
+  "data": {}
+}
+```
+
+### Server Error
+
+If there is an internal server error, the API responds might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```

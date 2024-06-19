@@ -1,0 +1,108 @@
+---
+title: "Add"
+openapi: "POST /api/settings/bank"
+---
+
+The Bank Creation API is designed to handle requests for registering a new bank within the system. This API is part of the settings management module and is responsible for adding bank details to the database.
+
+## Endpoint
+
+`POST {{BASE_URL}}/api/settings/bank`
+
+### Request
+
+To register a new bank, send a POST request to the endpoint with the following JSON payload:
+
+```json
+{
+  "bank_name": "New Bank Name",
+  "bank_code": "NEW1234567890",
+  "description": "Secondary bank account",
+  "is_active": true
+}
+```
+
+### Success Response
+
+On successful creation of an bank, the API response with the following JSON body:
+
+```json
+{
+  "statusCode": 201,
+  "message": "Bank added successfully.",
+  "data": {
+    "id": "93e7c207-8bc1-41f7-9a0f-0fe061a3671c",
+    "bank_name": "New Bank Name",
+    "bank_code": "NEW1234567890",
+    "description": "Secondary bank account",
+    "is_active": true,
+    "is_deleted": false,
+    "created_by": "128605d9-1ac6-4e96-9915-51f5bc3749a6",
+    "updated_by": "128605d9-1ac6-4e96-9915-51f5bc3749a6",
+    "deleted_by": null,
+    "created_at": "2024-06-18T06:01:47.986Z",
+    "updated_at": "2024-06-18T06:01:47.986Z",
+    "deleted_at": null
+  }
+}
+```
+
+### Bad Request Responses
+
+If the server cannot process the request due to a client error, the response might look like this:
+
+```json
+{
+  "statusCode": 400,
+  "message": "Bad Request: Missing required fields",
+  "data": {}
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API response might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "You are an unauthorized user",
+  "data": {}
+}
+```
+
+### Data Not Found Responses
+
+If the specified bank is not found in the database, the response might look like this:
+
+```json
+{
+  "statusCode": 404,
+  "message": "Bank not found.",
+  "data": {}
+}
+```
+
+### Validation Error
+
+If the request body does not contain valid data, such as a duplicate bank code, the response might include a validation error:
+
+```json
+{
+  "statusCode": 409,
+  "message": "Bank code already exists.",
+  "data": "Node.js"
+}
+```
+
+### Server Error
+
+If there is an internal server error, the API response might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```

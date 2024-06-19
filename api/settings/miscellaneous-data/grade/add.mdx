@@ -1,0 +1,110 @@
+---
+title: "Add"
+openapi: "POST /api/settings/grade"
+---
+
+The Grade Creation API is designed to handle requests for registering a new grade within the system. This API is part of the settings management module and is responsible for adding grade details to the database.
+
+## Endpoint
+
+`POST {{BASE_URL}}/api/settings/grade`
+
+### Request
+
+To register a new grade, send a POST request to the endpoint with the following JSON payload:
+
+```json
+{
+  "company_id": "f8218519-7fce-44bf-aa9b-ed7479bb0b72",
+  "grade_name": "Assistant Director",
+  "grade_code": "AD",
+  "description": "Assistant Director",
+  "is_active": true
+}
+```
+
+### Success Response
+
+On successful creation of an grade, the API response with the following JSON body:
+
+```json
+{
+  "statusCode": 201,
+  "message": "Grade added successfully.",
+  "data": {
+    "id": "2d1f11b6-c9d9-4183-b765-ca8e3781cd83",
+    "company_id": "816a2506-91c6-4b23-841d-cd174e42a074",
+    "grade_code": "AD",
+    "grade_name": "Senior Manager Officer",
+    "description": "Senior Manager Officer",
+    "is_active": true,
+    "is_deleted": false,
+    "created_by": "128605d9-1ac6-4e96-9915-51f5bc3749a6",
+    "updated_by": "128605d9-1ac6-4e96-9915-51f5bc3749a6",
+    "deleted_by": null,
+    "created_at": "2024-06-18T07:24:21.908Z",
+    "updated_at": "2024-06-18T07:24:21.908Z",
+    "deleted_at": null
+  }
+}
+```
+
+### Bad Request Responses
+
+If the server cannot process the request due to a client error, the response might look like this:
+
+```json
+{
+  "statusCode": 400,
+  "message": "Bad Request: Missing required fields",
+  "data": {}
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API response might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "You are an unauthorized user",
+  "data": {}
+}
+```
+
+### Data Not Found Responses
+
+If the specified grade is not found in the database, the response might look like this:
+
+```json
+{
+  "statusCode": 404,
+  "message": "Grade not found.",
+  "data": {}
+}
+```
+
+### Validation Error
+
+If the request body does not contain valid data, such as a duplicate grade code, the response might include a validation error:
+
+```json
+{
+  "statusCode": 409,
+  "message": "Grade already exist with same name.",
+  "data": {}
+}
+```
+
+### Server Error
+
+If there is an internal server error, the API response might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```

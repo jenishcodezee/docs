@@ -1,0 +1,93 @@
+---
+title: "List"
+openapi: "POST /api/settings/industries/list"
+---
+
+The Industries List API allows clients to retrieve a filtered list of industries from the system. This API is part of the settings management module and supports querying and pagination for industries.
+
+## Endpoint
+
+`POST {{BASE_URL}}/api/settings/industries/list`
+
+### Request
+
+To retrieve a list of industries, send a POST request to the endpoint with optional query parameters:
+
+```json
+{
+  "page": 1,
+  "limit": 15,
+  "is_active": true,
+  "search": "ere"
+}
+```
+
+### Success Response
+
+On successful retrieval of the industry, the API responds with the following JSON body:
+
+```json
+{
+  "statusCode": 200,
+  "message": "Industries listed successfully.",
+  "data": {
+    "totalPages": 1,
+    "currentPage": 1,
+    "totalCount": 1,
+    "industries": [
+      {
+        "id": "98efd683-9301-4451-9b61-db14316e2d26",
+        "industry_name": "Node.js",
+        "is_deleted": false,
+        "created_by": "128605d9-1ac6-4e96-9915-51f5bc3749a6",
+        "updated_by": "128605d9-1ac6-4e96-9915-51f5bc3749a6",
+        "deleted_by": null,
+        "created_at": "2024-06-18T04:50:07.916Z",
+        "updated_at": "2024-06-18T05:28:40.327Z",
+        "deleted_at": null,
+        "description": "This is Node js technology",
+        "is_active": true,
+        "action_by": "Jenish Chanchad",
+        "action_at": "2024-06-18T05:28:40.327Z",
+        "full_count": "1"
+      }
+    ]
+  }
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API response might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Token required",
+  "data": {}
+}
+```
+
+### Validation Error
+
+If the request body contains invalid data, the response might include a validation error:
+
+```json
+{
+  "statusCode": 409,
+  "message": "Validation Error",
+  "data": "is_active must be true or false."
+}
+```
+
+### Server Error
+
+If there is an internal server error, the API responds might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```

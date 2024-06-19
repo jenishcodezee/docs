@@ -1,0 +1,82 @@
+---
+title: "Get"
+openapi: "GET /api/settings/employee-code/{employeeCodeId}"
+---
+
+The Get Single Employee Code API allows clients to retrieve details of a specific employee code based on its unique identifier. This API is part of the settings management module and provides access to employee code information stored in the database.
+
+## Endpoint
+
+`GET {{BASE_URL}}/api/settings/employee-code/{employeeCodeId}`
+
+### Success Response
+
+On successful retrieval of the employee code, the API responds with the following JSON body:
+
+```json
+{
+  "statusCode": 200,
+  "message": "Employee code retrieved successfully.",
+  "data": {
+    "id": "01ef8c49-1597-420c-bbc7-3d6c1e234ae9",
+    "name": "Updated Logic Build PVT LTD",
+    "series_start": 0,
+    "prefix": "ULB",
+    "suffix": "C",
+    "numeric_series": 1,
+    "is_active": true,
+    "is_modify": true,
+    "last_created_number": 1,
+    "action_at": "2024-06-18T12:06:29.343Z",
+    "action_by": "Jenish Chanchad"
+  }
+}
+```
+
+### Bad Request Responses
+
+If the server cannot process the request due to a client error, the response might look like this:
+
+```json
+{
+  "statusCode": 400,
+  "message": "Bad Request: Missing required fields",
+  "data": {}
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API response might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "You are an unauthorized user",
+  "data": {}
+}
+```
+
+### Not found Responses
+
+If the specified employee code ID is not found in the database, the response might look like this:
+
+```json
+{
+  "statusCode": 404,
+  "message": "Employee code not found.",
+  "data": {}
+}
+```
+
+### Server Error
+
+If there is an internal server error, the response might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```

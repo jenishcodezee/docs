@@ -1,0 +1,106 @@
+---
+title: "Add"
+openapi: "POST /api/settings/industry"
+---
+
+The Industry Creation API is designed to handle requests for registering a new industry within the system. This API is part of the settings management module and is responsible for adding industry details to the database.
+
+## Endpoint
+
+`POST {{BASE_URL}}/api/settings/industry`
+
+### Request
+
+To register a new industry, the client must send a POST request to the specified endpoint with the following JSON payload:
+
+```json
+{
+  "industry_name": "Node.js",
+  "description": "This is Node js technology",
+  "is_active": true
+}
+```
+
+### Success Response
+
+On successful creation of an industry, the API response with the following JSON body:
+
+```json
+{
+  "statusCode": 201,
+  "message": "Industry added successfully.",
+  "data": {
+    "id": "98efd683-9301-4451-9b61-db14316e2d26",
+    "industry_name": "Node.js",
+    "is_deleted": false,
+    "created_by": "128605d9-1ac6-4e96-9915-51f5bc3749a6",
+    "updated_by": "128605d9-1ac6-4e96-9915-51f5bc3749a6",
+    "deleted_by": null,
+    "created_at": "2024-06-18T04:50:07.916Z",
+    "updated_at": "2024-06-18T04:50:07.916Z",
+    "deleted_at": null,
+    "description": "This is Node js technology",
+    "is_active": true
+  }
+}
+```
+
+### Bad Request Responses
+
+If the server cannot process the request due to a client error, the response might look like this:
+
+```json
+{
+  "statusCode": 400,
+  "message": "Bad Request: Missing required fields",
+  "data": {}
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API response might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "You are an unauthorized user",
+  "data": {}
+}
+```
+
+### Data Not Found Responses
+
+If the specified industry is not found in the database, the response might look like this:
+
+```json
+{
+  "statusCode": 404,
+  "message": "Industry not found.",
+  "data": {}
+}
+```
+
+### Validation Error
+
+If the request body does not contain valid data, such as a duplicate industry code, the response might include a validation error:
+
+```json
+{
+  "statusCode": 409,
+  "message": "Industry already exist with same name.",
+  "data": "Node.js"
+}
+```
+
+### Server Error
+
+If there is an internal server error, the API response might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```

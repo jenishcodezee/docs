@@ -1,0 +1,70 @@
+---
+title: "Delete"
+openapi: "DELETE /api/settings/department/{departmentId}"
+---
+
+The Department Deletion API is designed to handle requests for deleting an existing department within a company from the system. This API is part of the settings management module and is responsible for removing department details from the database.
+
+## Endpoint
+
+`DELETE {{BASE_URL}}/api/settings/department/{departmentId}`
+
+### Success Response
+
+On successful deletion of a department, the API responds with the following JSON body:
+
+```json
+{
+  "statusCode": 200,
+  "message": "Department deleted successfully.",
+  "data": {}
+}
+```
+
+### Bad Request Responses
+
+If the server cannot process the request due to a client error, the response might look like this:
+
+```json
+{
+  "statusCode": 400,
+  "message": "Bad Request: Missing required fields",
+  "data": {}
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API response might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Token required",
+  "data": {}
+}
+```
+
+### Data Not Found Responses
+
+If the specified department is not found in the database, the response might look like this:
+
+```json
+{
+  "statusCode": 404,
+  "message": "Department not found.",
+  "data": {}
+}
+```
+
+### Server Error
+
+If there is an internal server error, the response might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```

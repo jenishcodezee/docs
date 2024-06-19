@@ -1,0 +1,110 @@
+---
+title: "Update"
+openapi: "PUT /api/settings/work-type/{workTypeId}"
+---
+
+The Work-type Update API allows clients to update details of an existing work-type within the company's organizational structure. This API is part of the settings management module and is responsible for modifying work-type details in the database.
+
+## Endpoint
+
+`PUT {{BASE_URL}}/api/settings/work-type/{workTypeId}`
+
+### Request
+
+To update an existing work-type, the client must send a PUT request to the specified endpoint with the following JSON payload:
+
+```json
+{
+  "company_id": "816a2506-91c6-4b23-841d-cd174e42a074",
+  "work_type_name": "Part-Time",
+  "work_type_code": "PA",
+  "description": "Part-Time",
+  "is_active": true
+}
+```
+
+### Success Response
+
+On successful update of a work-type, the API responds with the following JSON body:
+
+```json
+{
+  "statusCode": 200,
+  "message": "Work type updated successfully.",
+  "data": {
+    "id": "caef9389-83ec-4bd8-813e-6e835031e829",
+    "company_id": "816a2506-91c6-4b23-841d-cd174e42a074",
+    "work_type_code": "PA",
+    "work_type_name": "Part-Time",
+    "description": "Part-Time",
+    "is_active": true,
+    "is_deleted": false,
+    "created_by": "128605d9-1ac6-4e96-9915-51f5bc3749a6",
+    "updated_by": "128605d9-1ac6-4e96-9915-51f5bc3749a6",
+    "deleted_by": null,
+    "created_at": "2024-06-18T10:24:46.560Z",
+    "updated_at": "2024-06-18T10:39:07.484Z",
+    "deleted_at": null
+  }
+}
+```
+
+### Bad Request Responses
+
+If the server cannot process the request due to a client error, the response might look like this:
+
+```json
+{
+  "statusCode": 400,
+  "message": "Bad Request: Missing required fields",
+  "data": {}
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API response might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Token required",
+  "data": {}
+}
+```
+
+### Data Not Found Responses
+
+If the provided work type ID is not found in the database, the response might look like this:
+
+```json
+{
+  "statusCode": 404,
+  "message": "Work-type not found.",
+  "data": {}
+}
+```
+
+### Validation Error
+
+If the request body does not contain valid data, the response might include a validation error:
+
+```json
+{
+  "statusCode": 409,
+  "message": "Validation Error",
+  "data": "Work-type code must be a string."
+}
+```
+
+### Server Error
+
+If there is an internal server error, the API response might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```

@@ -1,0 +1,77 @@
+---
+title: "State"
+openapi: "POST /api/state/{countryId}"
+---
+
+This API endpoint fetches a list of state details.
+
+## Endpoint
+
+`POST {{BASE_URL}}/api/state/{countryId}`
+
+### Success Response
+
+The Response should include the following JSON body:
+
+```json
+{
+  "statusCode": 200,
+  "message": "States fetched successfully.",
+  "data": [
+    {
+      "id": "c9557c1f-92f0-4158-bdca-fa33e70563d7",
+      "state_name": "Andaman and Nicobar Islands",
+      "country_id": "cb6c8d39-ab05-4220-90d6-8eda6b3b9ce5"
+    },
+    {
+      "id": "acee157d-58fa-4aee-aa84-b7fdfbefeafd",
+      "state_name": "Andhra Pradesh",
+      "country_id": "cb6c8d39-ab05-4220-90d6-8eda6b3b9ce5"
+    },
+    {
+      "id": "414ad561-4593-45cb-8375-0748a3766c0a",
+      "state_name": "Arunachal Pradesh",
+      "country_id": "cb6c8d39-ab05-4220-90d6-8eda6b3b9ce5"
+    },
+    {
+      "id": "f92b38e8-bc51-495e-9578-5c293ce9d821",
+      "state_name": "Assam",
+      "country_id": "cb6c8d39-ab05-4220-90d6-8eda6b3b9ce5"
+    },
+    {
+      "id": "4bea82ed-bfb1-4368-ace5-7ffb32bcea34",
+      "state_name": "Bihar",
+      "country_id": "cb6c8d39-ab05-4220-90d6-8eda6b3b9ce5"
+    },
+    {
+      "id": "9f89210f-14bf-4451-93e8-d41a0963df8e",
+      "state_name": "Gujarat",
+      "country_id": "cb6c8d39-ab05-4220-90d6-8eda6b3b9ce5"
+    }
+  ]
+}
+```
+
+### Unauthenticated User Responses
+
+If the request lacks proper authentication, the API responds might look like this:
+
+```json
+{
+  "statusCode": 401,
+  "message": "Token required",
+  "data": {}
+}
+```
+
+### Server Error
+
+If there is an internal server error, the API responds might look like this:
+
+```json
+{
+  "statusCode": 500,
+  "message": "Internal server error. Please try again later.",
+  "data": {}
+}
+```
