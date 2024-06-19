@@ -35,7 +35,7 @@
   "navigation": [
     {
       "group": "API Documentation",
-      "pages": ["/api/introduction.mdx"]
+      "pages": ["api/introduction"]
     },
     {
       "group": "Authentication",
